@@ -1,0 +1,35 @@
+/* src/components/Game/HandView.css */
+.hand-view {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.tiles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hand-view {
+    padding: 15px 10px;
+  }
+
+  .tiles-container {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hand-view {
+    padding: 10px 5px;
+  }
+
+  .tiles-container {
+    gap: 1px;
+  }
+}

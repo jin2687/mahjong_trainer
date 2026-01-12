@@ -1,0 +1,188 @@
+/* src/components/Input/StepForm.css */
+.step-form {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 700px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  background: #e0e0e0;
+  color: #666;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 0 5px;
+  transition: all 0.3s;
+}
+
+.step.active {
+  background: linear-gradient(135deg, #1e7e34 0%, #2d8e44 100%);
+  color: white;
+}
+
+.form-content {
+  min-height: 250px;
+  margin-bottom: 20px;
+}
+
+.selection-area h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.option-button {
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #1e7e34;
+  background: white;
+  color: #1e7e34;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option-button:hover {
+  background: #e8f5e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.option-button.selected {
+  background: #1e7e34;
+  color: white;
+  box-shadow: 0 4px 12px rgba(30, 126, 52, 0.4);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.btn {
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #1e7e34 0%, #2d8e44 100%);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #176328 0%, #25753a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 126, 52, 0.3);
+}
+
+.btn-secondary {
+  background: #757575;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #616161;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .step-form {
+    padding: 20px 15px;
+    margin: 15px 10px;
+  }
+
+  .step-indicator {
+    padding: 0 5px;
+  }
+
+  .step {
+    font-size: 13px;
+    padding: 10px 8px;
+    margin: 0 3px;
+  }
+
+  .selection-area h3 {
+    font-size: 18px;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+  }
+
+  .option-button {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-form {
+    padding: 15px 10px;
+  }
+
+  .step {
+    font-size: 11px;
+    padding: 8px 5px;
+  }
+
+  .selection-area h3 {
+    font-size: 16px;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 8px;
+  }
+
+  .option-button {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

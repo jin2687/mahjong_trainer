@@ -1,0 +1,108 @@
+/* src/components/Game/InfoPanel.css */
+.info-panel {
+  background: linear-gradient(135deg, #1e7e34 0%, #2d8e44 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  gap: 20px;
+}
+
+.info-section:last-child {
+  margin-bottom: 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #e8f5e9;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+.highlight-ron {
+  background: rgba(255, 87, 87, 0.8);
+  color: white;
+}
+
+.highlight-tsumo {
+  background: rgba(74, 144, 226, 0.8);
+  color: white;
+}
+
+.dora-section {
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.dora-tiles {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .info-panel {
+    padding: 15px;
+    margin: 15px 10px;
+  }
+
+  .info-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .info-item {
+    justify-content: space-between;
+  }
+
+  .info-label {
+    font-size: 13px;
+  }
+
+  .info-value {
+    font-size: 14px;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-panel {
+    padding: 12px;
+  }
+
+  .info-label {
+    font-size: 12px;
+  }
+
+  .info-value {
+    font-size: 13px;
+    padding: 2px 8px;
+  }
+
+  .dora-tiles {
+    gap: 4px;
+  }
+}
