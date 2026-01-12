@@ -8,6 +8,10 @@ interface ExplanationProps {
     han: number;
     fu: number;
     score: number;
+    yaku: {
+      name: string;
+      han: number;
+    }[];
   };
   userAnswer: {
     han: number;
@@ -78,6 +82,22 @@ const Explanation: React.FC<ExplanationProps> = ({
               <span className="value correct-value">{correctAnswer.score.toLocaleString()}点</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="yaku-section">
+        <h3>役の内訳（翻数）</h3>
+        <div className="yaku-list">
+          {correctAnswer.yaku.map((yaku, index) => (
+            <div key={index} className="yaku-item">
+              <span className="yaku-name">{yaku.name}</span>
+              <span className="yaku-han">{yaku.han}翻</span>
+            </div>
+          ))}
+        </div>
+        <div className="yaku-total">
+          <span>合計</span>
+          <span className="total-value">{correctAnswer.han}翻</span>
         </div>
       </div>
 

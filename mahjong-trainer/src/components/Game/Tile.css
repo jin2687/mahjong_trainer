@@ -27,8 +27,25 @@
 }
 
 .tile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   user-select: none;
+}
+
+.tile-unicode {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.tile-text {
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+  line-height: 1;
 }
 
 .tile-badge {
@@ -56,6 +73,14 @@
     margin: 0 1px;
   }
 
+  .tile-unicode {
+    font-size: 24px;
+  }
+
+  .tile-text {
+    font-size: 8px;
+  }
+
   .tile-badge {
     font-size: 9px;
     padding: 3px 6px;
@@ -69,6 +94,14 @@
     width: 28px;
     height: 42px;
     font-size: 12px;
+  }
+
+  .tile-unicode {
+    font-size: 20px;
+  }
+
+  .tile-text {
+    font-size: 7px;
   }
 
   .tile-badge {

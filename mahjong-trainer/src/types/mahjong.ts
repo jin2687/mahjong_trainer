@@ -27,6 +27,11 @@ export interface QuestionData {
     han: number;
     fu: number;
     score: number;
+    // 役の情報
+    yaku: {
+      name: string;  // 例: "立直", "平和", "ドラ"
+      han: number;   // 例: 1, 1, 1
+    }[];
     // 解説用: どの牌に何の符がついたか
     breakdown: {
       reason: string;               // 例: "一九暗刻", "カンチャン"

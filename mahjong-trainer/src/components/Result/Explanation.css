@@ -93,6 +93,60 @@
   color: white;
 }
 
+.yaku-section {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f1f8ff 100%);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.yaku-section h3 {
+  color: #1565c0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.yaku-list {
+  margin-bottom: 15px;
+}
+
+.yaku-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #1565c0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.yaku-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+.yaku-han {
+  font-weight: bold;
+  color: #1565c0;
+  font-size: 18px;
+}
+
+.yaku-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #1565c0;
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .breakdown-section {
   background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f2 100%);
   border-radius: 12px;
@@ -202,6 +256,31 @@
     font-size: 16px;
   }
 
+  .yaku-section {
+    padding: 20px 15px;
+  }
+
+  .yaku-section h3 {
+    font-size: 18px;
+  }
+
+  .yaku-item {
+    padding: 10px 12px;
+  }
+
+  .yaku-name {
+    font-size: 15px;
+  }
+
+  .yaku-han {
+    font-size: 16px;
+  }
+
+  .yaku-total {
+    padding: 12px 15px;
+    font-size: 16px;
+  }
+
   .breakdown-section {
     padding: 20px 15px;
   }
@@ -241,6 +320,19 @@
   .result-badge {
     font-size: 20px;
     padding: 12px;
+  }
+
+  .yaku-item {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .yaku-name {
+    font-size: 14px;
+  }
+
+  .yaku-han {
+    font-size: 15px;
   }
 
   .breakdown-item {

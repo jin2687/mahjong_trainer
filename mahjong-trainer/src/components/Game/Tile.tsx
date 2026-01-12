@@ -1,6 +1,7 @@
 // src/components/Game/Tile.tsx
 import React from 'react';
 import './Tile.css';
+import { getTileDisplay } from '../../utils/tileDisplay';
 
 interface TileProps {
   tileId: string;
@@ -9,38 +10,15 @@ interface TileProps {
 }
 
 const Tile: React.FC<TileProps> = ({ tileId, badgeText, isHighlight }) => {
-  // 牌のラベルを生成（簡易表示用）
-  const getTileLabel = (id: string): string => {
-    const type = id.charAt(0);
-    const number = id.substring(1);
-
-    const typeMap: Record<string, string> = {
-      'm': '萬',
-      'p': '筒',
-      's': '索',
-      'z': '字',
-    };
-
-    if (type === 'z') {
-      const zhaiMap: Record<string, string> = {
-        '1': '東',
-        '2': '南',
-        '3': '西',
-        '4': '北',
-        '5': '白',
-        '6': '發',
-        '7': '中',
-      };
-      return zhaiMap[number] || number;
-    }
-
-    return `${number}${typeMap[type] || ''}`;
-  };
+  const display = getTileDisplay(tileId);
 
   return (
     <div className={`tile ${isHighlight ? 'tile-highlight' : ''}`}>
       <div className="tile-content">
-        {getTileLabel(tileId)}
+        <span className="tile-unicode" style={{ color: display.color }}>
+          {display.unicode}
+        </span>
+        <span className="tile-text">{display.text}</span>
       </div>
       {badgeText && (
         <div className="tile-badge">

@@ -17,6 +17,10 @@ export const questions: QuestionData[] = [
       han: 2,
       fu: 20,
       score: 1300,
+      yaku: [
+        { name: '立直', han: 1 },
+        { name: 'ドラ', han: 1 },
+      ],
       breakdown: [
         {
           reason: '副底',
@@ -42,6 +46,9 @@ export const questions: QuestionData[] = [
       han: 1,
       fu: 40,
       score: 1300,
+      yaku: [
+        { name: '断么九', han: 1 },
+      ],
       breakdown: [
         {
           reason: '副底',
@@ -82,6 +89,9 @@ export const questions: QuestionData[] = [
       han: 1,
       fu: 30,
       score: 1500,
+      yaku: [
+        { name: 'ドラ', han: 1 },
+      ],
       breakdown: [
         {
           reason: '副底',
@@ -109,9 +119,13 @@ export const questions: QuestionData[] = [
       doraIndicators: ['m2'],
     },
     answer: {
-      han: 2,
+      han: 3,
       fu: 50,
-      score: 4800,
+      score: 7700,
+      yaku: [
+        { name: '混老頭', han: 2 },
+        { name: '役牌 東', han: 1 },
+      ],
       breakdown: [
         {
           reason: '副底',
