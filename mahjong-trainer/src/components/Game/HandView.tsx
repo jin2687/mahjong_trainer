@@ -6,19 +6,30 @@ import './HandView.css';
 
 interface HandViewProps {
   tiles: TileData[];
+  winningTileIndex?: number;
+  isRon?: boolean;
 }
 
-const HandView: React.FC<HandViewProps> = ({ tiles }) => {
+const HandView: React.FC<HandViewProps> = ({ tiles, winningTileIndex, isRon }) => {
   return (
     <div className="hand-view">
       <div className="tiles-container">
         {tiles.map((tile, index) => (
-          <Tile
-            key={`${tile.id}-${index}`}
-            tileId={tile.id}
-            badgeText={tile.badgeText}
-            isHighlight={tile.isHighlight}
-          />
+          <React.Fragment key={`${tile.id}-${index}`}>
+            <Tile
+              tileId={tile.id}
+              badgeText={tile.badgeText}
+              isHighlight={tile.isHighlight}
+              isWinning={index === winningTileIndex}
+            />
+            {index === winningTileIndex && (
+              <div className="winning-tile-separator">
+                <span className="winning-label">
+                  {isRon ? 'ロン' : 'ツモ'}
+                </span>
+              </div>
+            )}
+          </React.Fragment>
         ))}
       </div>
     </div>

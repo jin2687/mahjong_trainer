@@ -21,6 +21,7 @@ export interface QuestionData {
     windRound: 'East' | 'South';  // 場風
     windSeat: 'East' | 'South' | 'West' | 'North'; // 自風
     doraIndicators: TileId[];     // ドラ表示牌
+    winningTileIndex: number;     // アガリ牌のインデックス（通常は13）
   };
   // 正解データ
   answer: {

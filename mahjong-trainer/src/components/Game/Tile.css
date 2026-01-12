@@ -13,7 +13,7 @@
   font-weight: bold;
   color: #333;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin: 0 2px;
+  margin: 0;
   transition: transform 0.2s;
 }
 
@@ -24,6 +24,13 @@
 .tile-highlight {
   border-color: #ff6b6b;
   box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.tile-winning {
+  border-color: #ff9800;
+  border-width: 3px;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
+  transform: translateY(-5px);
 }
 
 .tile-content {
@@ -70,7 +77,11 @@
     width: 36px;
     height: 52px;
     font-size: 14px;
-    margin: 0 1px;
+    margin: 0;
+  }
+
+  .tile-winning {
+    transform: translateY(-3px);
   }
 
   .tile-unicode {

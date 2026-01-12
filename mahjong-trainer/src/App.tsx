@@ -89,7 +89,11 @@ function App() {
           doraIndicators={currentQuestion.situation.doraIndicators}
         />
 
-        <HandView tiles={tilesData} />
+        <HandView
+          tiles={tilesData}
+          winningTileIndex={currentQuestion.situation.winningTileIndex}
+          isRon={currentQuestion.situation.isRon}
+        />
 
         {gameState === 'question' && (
           <StepForm onSubmit={handleSubmitAnswer} isParent={isParent} />

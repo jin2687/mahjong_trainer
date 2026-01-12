@@ -10,8 +10,27 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 4px;
+  align-items: center;
+  gap: 0;
   max-width: 100%;
+}
+
+.winning-tile-separator {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  position: relative;
+}
+
+.winning-label {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(255, 152, 0, 0.4);
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
@@ -20,7 +39,16 @@
   }
 
   .tiles-container {
-    gap: 2px;
+    gap: 0;
+  }
+
+  .winning-tile-separator {
+    margin: 0 6px;
+  }
+
+  .winning-label {
+    font-size: 10px;
+    padding: 3px 8px;
   }
 }
 
@@ -30,6 +58,15 @@
   }
 
   .tiles-container {
-    gap: 1px;
+    gap: 0;
+  }
+
+  .winning-tile-separator {
+    margin: 0 4px;
+  }
+
+  .winning-label {
+    font-size: 9px;
+    padding: 2px 6px;
   }
 }
