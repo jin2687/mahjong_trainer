@@ -16,10 +16,11 @@ const Tile: React.FC<TileProps> = ({ tileId, badgeText, isHighlight, isWinning }
   return (
     <div className={`tile ${isHighlight ? 'tile-highlight' : ''} ${isWinning ? 'tile-winning' : ''}`}>
       <div className="tile-content">
-        <span className="tile-unicode" style={{ color: display.color }}>
-          {display.unicode}
-        </span>
-        <span className="tile-text">{display.text}</span>
+        <img
+          src={display.imagePath}
+          alt={display.alt}
+          className="tile-image"
+        />
       </div>
       {badgeText && (
         <div className="tile-badge">
