@@ -1,16 +1,28 @@
 // src/App.tsx
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import './App.css';
 import { questions } from './data/questions';
-import type { TileData } from './types/mahjong';
+import type { TileData, QuestionData } from './types/mahjong';
 import HandView from './components/Game/HandView';
 import InfoPanel from './components/Game/InfoPanel';
 import StepForm from './components/Input/StepForm';
 import Explanation from './components/Result/Explanation';
+import ScoreTableModal from './components/ScoreTable/ScoreTableModal';
 
 type GameState = 'question' | 'result';
 
+// Fisher-Yatesシャッフルアルゴリズム
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 function App() {
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuestionData[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [gameState, setGameState] = useState<GameState>('question');
   const [userAnswer, setUserAnswer] = useState<{
@@ -18,8 +30,18 @@ function App() {
     fu: number;
     score: number;
   } | null>(null);
+  const [isScoreTableOpen, setIsScoreTableOpen] = useState(false);
 
-  const currentQuestion = questions[currentQuestionIndex];
+  // 初回に問題をシャッフル
+  useEffect(() => {
+    setShuffledQuestions(shuffleArray(questions));
+  }, []);
+
+  if (shuffledQuestions.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  const currentQuestion = shuffledQuestions[currentQuestionIndex];
   const isParent = currentQuestion.situation.windSeat === 'East';
 
   // 手牌データを生成（解説モード時はバッジを追加）
@@ -51,7 +73,7 @@ function App() {
 
   const handleNextQuestion = () => {
     // 次の問題へ
-    const nextIndex = (currentQuestionIndex + 1) % questions.length;
+    const nextIndex = (currentQuestionIndex + 1) % shuffledQuestions.length;
     setCurrentQuestionIndex(nextIndex);
     setGameState('question');
     setUserAnswer(null);
@@ -72,12 +94,18 @@ function App() {
       <header className="app-header">
         <h1>🀄 Mahjong Trainer</h1>
         <p className="subtitle">麻雀点数計算トレーニング</p>
+        <button
+          className="score-table-button"
+          onClick={() => setIsScoreTableOpen(true)}
+        >
+          点数表
+        </button>
       </header>
 
       <main className="app-main">
         <div className="question-info">
           <span className="question-number">
-            問題 {currentQuestionIndex + 1} / {questions.length}
+            問題 {currentQuestionIndex + 1} / {shuffledQuestions.length}
           </span>
         </div>
 
@@ -114,6 +142,11 @@ function App() {
       <footer className="app-footer">
         <p>© 2026 Mahjong Trainer - Learn to calculate mahjong scores</p>
       </footer>
+
+      <ScoreTableModal
+        isOpen={isScoreTableOpen}
+        onClose={() => setIsScoreTableOpen(false)}
+      />
     </div>
   );
 }
