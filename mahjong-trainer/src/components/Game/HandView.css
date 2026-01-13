@@ -6,6 +6,12 @@
   margin: 20px 0;
 }
 
+.hand-view-layout {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
 .tiles-container {
   display: flex;
   flex-wrap: wrap;
@@ -13,6 +19,14 @@
   align-items: center;
   gap: 0;
   max-width: 100%;
+}
+
+.melds-container {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  padding-left: 12px;
+  border-left: 2px solid #e0e0e0;
 }
 
 .winning-tile-separator {

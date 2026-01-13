@@ -91,6 +91,7 @@ function App() {
 
         <HandView
           tiles={tilesData}
+          melds={currentQuestion.melds}
           winningTileIndex={currentQuestion.situation.winningTileIndex}
           isRon={currentQuestion.situation.isRon}
         />

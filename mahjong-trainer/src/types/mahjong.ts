@@ -11,17 +11,28 @@ export interface TileData {
   isHighlight?: boolean;
 }
 
+// 鳴きの種類
+export type MeldType = 'pon' | 'chi' | 'kan' | 'ankan';
+
+// 鳴きのデータ
+export interface Meld {
+  type: MeldType;
+  tiles: TileId[];          // 鳴いた牌のID配列（ポン・チー: 3枚、カン: 4枚）
+  calledTileIndex?: number; // 鳴いた牌のインデックス（暗槓の場合はundefined）
+}
+
 // 1問分のデータ構造
 export interface QuestionData {
   id: string;
-  handTiles: TileId[]; // 手牌のID配列 (長さ14)
+  handTiles: TileId[]; // 手牌のID配列 (鳴きがある場合は短くなる)
+  melds?: Meld[];      // 鳴きの配列（ポン・チー・カンなど）
   situation: {
     isRon: boolean;               // ロンあがり: true, ツモ: false
     isRiichi: boolean;
     windRound: 'East' | 'South';  // 場風
     windSeat: 'East' | 'South' | 'West' | 'North'; // 自風
     doraIndicators: TileId[];     // ドラ表示牌
-    winningTileIndex: number;     // アガリ牌のインデックス（通常は13）
+    winningTileIndex: number;     // アガリ牌のインデックス（手牌の中）
   };
   // 正解データ
   answer: {

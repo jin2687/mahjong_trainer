@@ -850,4 +850,76 @@ export const questions: QuestionData[] = [
       ],
     },
   },
+
+  // 問題31: ポンあり - 役牌のみ (30符)
+  {
+    id: 'q031',
+    handTiles: ['m2', 'm3', 'm4', 'p5', 'p6', 'p7', 's3', 's4', 's5', 'p2', 'p2'],
+    melds: [
+      {
+        type: 'pon',
+        tiles: ['z1', 'z1', 'z1'],
+        calledTileIndex: 2, // 3枚目を鳴いた
+      },
+    ],
+    situation: {
+      isRon: true,
+      isRiichi: false,
+      windRound: 'East',
+      windSeat: 'East',
+      doraIndicators: ['m5'], // ドラ: m6
+      winningTileIndex: 10,
+    },
+    answer: {
+      han: 1,
+      fu: 40,
+      score: 1900, // 親1翻40符ロン
+      yaku: [
+        { name: '役牌 東', han: 1 },
+      ],
+      breakdown: [
+        { reason: '副底', fu: 20, relatedTileIndices: [] },
+        { reason: '字牌明刻', fu: 4, relatedTileIndices: [] }, // 鳴き牌なのでインデックスなし
+        { reason: 'ロン', fu: 10, relatedTileIndices: [] },
+      ],
+    },
+  },
+
+  // 問題32: チーあり - タンヤオのみ (30符)
+  {
+    id: 'q032',
+    handTiles: ['m3', 'm4', 'm5', 'p5', 'p6', 'p7', 's4', 's5'],
+    melds: [
+      {
+        type: 'chi',
+        tiles: ['s2', 's3', 's4'],
+        calledTileIndex: 2, // s4を鳴いた
+      },
+      {
+        type: 'pon',
+        tiles: ['p3', 'p3', 'p3'],
+        calledTileIndex: 1, // 2枚目を鳴いた
+      },
+    ],
+    situation: {
+      isRon: true,
+      isRiichi: false,
+      windRound: 'South',
+      windSeat: 'West',
+      doraIndicators: ['m9'], // ドラ: m1
+      winningTileIndex: 7,
+    },
+    answer: {
+      han: 1,
+      fu: 30,
+      score: 1000, // 子1翻30符ロン
+      yaku: [
+        { name: '断么九', han: 1 },
+      ],
+      breakdown: [
+        { reason: '副底', fu: 20, relatedTileIndices: [] },
+        { reason: 'ロン', fu: 10, relatedTileIndices: [] },
+      ],
+    },
+  },
 ];
