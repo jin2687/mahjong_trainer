@@ -12,12 +12,14 @@ interface TileProps {
 
 const Tile: React.FC<TileProps> = ({ tileId, badgeText, isHighlight, isWinning }) => {
   const display = getTileDisplay(tileId);
+  // Viteのベースパスを含めた画像パス
+  const imageSrc = `${import.meta.env.BASE_URL}tiles/${tileId}.png`;
 
   return (
     <div className={`tile ${isHighlight ? 'tile-highlight' : ''} ${isWinning ? 'tile-winning' : ''}`}>
       <div className="tile-content">
         <img
-          src={display.imagePath}
+          src={imageSrc}
           alt={display.alt}
           className="tile-image"
         />
