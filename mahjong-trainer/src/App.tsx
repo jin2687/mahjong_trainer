@@ -1,5 +1,5 @@
 // src/App.tsx
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import './App.css';
 import { questions } from './data/questions';
 import type { TileData, QuestionData } from './types/mahjong';
@@ -22,7 +22,8 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 function App() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<QuestionData[]>([]);
+  // 初回に問題をシャッフル（useState の初期化関数を使用）
+  const [shuffledQuestions] = useState<QuestionData[]>(() => shuffleArray(questions));
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [gameState, setGameState] = useState<GameState>('question');
   const [userAnswer, setUserAnswer] = useState<{
@@ -31,15 +32,6 @@ function App() {
     score: number;
   } | null>(null);
   const [isScoreTableOpen, setIsScoreTableOpen] = useState(false);
-
-  // 初回に問題をシャッフル
-  useEffect(() => {
-    setShuffledQuestions(shuffleArray(questions));
-  }, []);
-
-  if (shuffledQuestions.length === 0) {
-    return <div>Loading...</div>;
-  }
 
   const currentQuestion = shuffledQuestions[currentQuestionIndex];
   const isParent = currentQuestion.situation.windSeat === 'East';
