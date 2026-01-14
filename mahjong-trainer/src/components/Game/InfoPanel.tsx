@@ -25,38 +25,49 @@ const InfoPanel: React.FC<InfoPanelProps> = ({
     North: '北',
   };
 
+  const isParent = windSeat === 'East';
+
   return (
     <div className="info-panel">
-      <div className="info-section">
-        <div className="info-item">
-          <span className="info-label">場風:</span>
-          <span className="info-value">{windMap[windRound]}場</span>
-        </div>
-        <div className="info-item">
-          <span className="info-label">自風:</span>
-          <span className="info-value">{windMap[windSeat]}</span>
-        </div>
-      </div>
-
-      <div className="info-section">
-        <div className="info-item">
-          <span className="info-label">アガリ:</span>
-          <span className={`info-value ${isRon ? 'highlight-ron' : 'highlight-tsumo'}`}>
-            {isRon ? 'ロン' : 'ツモ'}
-          </span>
-        </div>
-        <div className="info-item">
-          <span className="info-label">リーチ:</span>
-          <span className="info-value">{isRiichi ? 'あり' : 'なし'}</span>
+      {/* 重要な情報を大きく表示 */}
+      <div className="important-badges">
+        {isParent && (
+          <div className="badge badge-parent">
+            <span className="badge-icon">👑</span>
+            <span className="badge-text">親</span>
+          </div>
+        )}
+        {isRiichi && (
+          <div className="badge badge-riichi">
+            <span className="badge-icon">🎯</span>
+            <span className="badge-text">リーチ</span>
+          </div>
+        )}
+        <div className={`badge ${isRon ? 'badge-ron' : 'badge-tsumo'}`}>
+          <span className="badge-text">{isRon ? 'ロン' : 'ツモ'}</span>
         </div>
       </div>
 
-      <div className="info-section dora-section">
-        <div className="info-label">ドラ表示牌:</div>
-        <div className="dora-tiles">
-          {doraIndicators.map((dora, index) => (
-            <Tile key={`dora-${index}`} tileId={dora} />
-          ))}
+      {/* その他の情報 */}
+      <div className="info-details">
+        <div className="info-row">
+          <div className="info-item">
+            <span className="info-label">場風:</span>
+            <span className="info-value">{windMap[windRound]}場</span>
+          </div>
+          <div className="info-item">
+            <span className="info-label">自風:</span>
+            <span className="info-value">{windMap[windSeat]}</span>
+          </div>
+        </div>
+
+        <div className="dora-section">
+          <div className="info-label">ドラ表示牌:</div>
+          <div className="dora-tiles">
+            {doraIndicators.map((dora, index) => (
+              <Tile key={`dora-${index}`} tileId={dora} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

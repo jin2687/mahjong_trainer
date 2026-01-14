@@ -4,20 +4,83 @@
   border-radius: 12px;
   padding: 20px;
   margin: 20px auto;
-  max-width: 600px;
+  max-width: 700px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   color: white;
 }
 
-.info-section {
+/* 重要なバッジ（親・リーチ・ロン/ツモ）*/
+.important-badges {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.badge-parent {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #333;
+  border: 3px solid #ff6b6b;
+}
+
+.badge-riichi {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: 3px solid #fff;
+}
+
+.badge-ron {
+  background: linear-gradient(135deg, #ff5757 0%, #ff3838 100%);
+  color: white;
+}
+
+.badge-tsumo {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+}
+
+.badge-icon {
+  font-size: 24px;
+}
+
+.badge-text {
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* 詳細情報 */
+.info-details {
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  padding-top: 15px;
+}
+
+.info-row {
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
   gap: 20px;
-}
-
-.info-section:last-child {
-  margin-bottom: 0;
 }
 
 .info-item {
@@ -40,21 +103,11 @@
   border-radius: 6px;
 }
 
-.highlight-ron {
-  background: rgba(255, 87, 87, 0.8);
-  color: white;
-}
-
-.highlight-tsumo {
-  background: rgba(74, 144, 226, 0.8);
-  color: white;
-}
-
 .dora-section {
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
-  border-top: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .dora-tiles {
@@ -69,7 +122,24 @@
     margin: 15px 10px;
   }
 
-  .info-section {
+  .important-badges {
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .badge-icon {
+    font-size: 20px;
+  }
+
+  .badge-text {
+    font-size: 18px;
+  }
+
+  .info-row {
     flex-direction: column;
     gap: 10px;
   }
@@ -91,6 +161,19 @@
 @media (max-width: 480px) {
   .info-panel {
     padding: 12px;
+  }
+
+  .badge {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .badge-icon {
+    font-size: 18px;
+  }
+
+  .badge-text {
+    font-size: 16px;
   }
 
   .info-label {

@@ -22,17 +22,13 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 function App() {
-  console.log('[App] Component mounting');
-  console.log('[App] Questions length:', questions.length);
 
   // 初回に問題をシャッフル（useState の初期化関数を使用）
   const [shuffledQuestions] = useState<QuestionData[]>(() => {
     const shuffled = shuffleArray(questions);
-    console.log('[App] Shuffled questions length:', shuffled.length);
     return shuffled;
   });
 
-  console.log('[App] State initialized, shuffledQuestions:', shuffledQuestions.length);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [gameState, setGameState] = useState<GameState>('question');
@@ -44,10 +40,8 @@ function App() {
   const [isScoreTableOpen, setIsScoreTableOpen] = useState(false);
 
   const currentQuestion = shuffledQuestions[currentQuestionIndex];
-  console.log('[App] Current question:', currentQuestion?.id || 'undefined');
 
   if (!currentQuestion) {
-    console.error('[App] No current question found!');
     return <div>Error: No questions available</div>;
   }
 
