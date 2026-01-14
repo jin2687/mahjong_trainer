@@ -29,41 +29,42 @@ const InfoPanel: React.FC<InfoPanelProps> = ({
 
   return (
     <div className="info-panel">
-      {/* 重要な情報を大きく表示 */}
-      <div className="important-badges">
+      <div className="info-compact-row">
+        {/* 親バッジ */}
         {isParent && (
           <div className="badge badge-parent">
             <span className="badge-icon">👑</span>
             <span className="badge-text">親</span>
           </div>
         )}
+        
+        {/* リーチバッジ */}
         {isRiichi && (
           <div className="badge badge-riichi">
             <span className="badge-icon">🎯</span>
             <span className="badge-text">リーチ</span>
           </div>
         )}
+        
+        {/* ロン/ツモバッジ */}
         <div className={`badge ${isRon ? 'badge-ron' : 'badge-tsumo'}`}>
           <span className="badge-text">{isRon ? 'ロン' : 'ツモ'}</span>
         </div>
-      </div>
 
-      {/* その他の情報 */}
-      <div className="info-details">
-        <div className="info-row">
-          <div className="info-item">
-            <span className="info-label">場風:</span>
-            <span className="info-value">{windMap[windRound]}場</span>
-          </div>
-          <div className="info-item">
-            <span className="info-label">自風:</span>
-            <span className="info-value">{windMap[windSeat]}</span>
-          </div>
+        {/* 場風 */}
+        <div className="info-compact-item">
+          <span className="compact-value">{windMap[windRound]}場</span>
         </div>
 
-        <div className="dora-section">
-          <div className="info-label">ドラ表示牌:</div>
-          <div className="dora-tiles">
+        {/* 自風 */}
+        <div className="info-compact-item">
+          <span className="compact-value">{windMap[windSeat]}</span>
+        </div>
+
+        {/* ドラ表示牌 */}
+        <div className="info-compact-item dora-compact">
+          <span className="compact-label">ドラ:</span>
+          <div className="dora-tiles-compact">
             {doraIndicators.map((dora, index) => (
               <Tile key={`dora-${index}`} tileId={dora} />
             ))}

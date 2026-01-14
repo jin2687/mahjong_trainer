@@ -2,53 +2,45 @@
 .info-panel {
   background: linear-gradient(135deg, #1e7e34 0%, #2d8e44 100%);
   border-radius: 12px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 700px;
+  padding: 12px 20px;
+  margin: 15px auto;
+  max-width: 900px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   color: white;
 }
 
-/* 重要なバッジ（親・リーチ・ロン/ツモ）*/
-.important-badges {
+/* コンパクトな一列表示 */
+.info-compact-row {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
+/* バッジ */
 .badge {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-size: 20px;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
 }
 
 .badge-parent {
   background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
   color: #333;
-  border: 3px solid #ff6b6b;
+  border: 2px solid #ff6b6b;
 }
 
 .badge-riichi {
   background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
   color: white;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
 }
 
 .badge-ron {
@@ -62,130 +54,120 @@
 }
 
 .badge-icon {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .badge-text {
-  font-size: 22px;
-  letter-spacing: 2px;
-}
-
-/* 詳細情報 */
-.info-details {
-  border-top: 2px solid rgba(255, 255, 255, 0.3);
-  padding-top: 15px;
-}
-
-.info-row {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 15px;
-  gap: 20px;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.info-label {
-  font-weight: bold;
-  font-size: 14px;
-  color: #e8f5e9;
-}
-
-.info-value {
   font-size: 16px;
-  font-weight: 600;
-  padding: 4px 12px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
+  letter-spacing: 1px;
 }
 
-.dora-section {
+/* コンパクトな情報アイテム */
+.info-compact-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.dora-tiles {
+.compact-label {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.compact-value {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ドラ表示 */
+.dora-compact {
+  padding: 4px 12px;
+}
+
+.dora-tiles-compact {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 4px;
 }
 
+/* タブレット */
 @media (max-width: 768px) {
   .info-panel {
-    padding: 15px;
-    margin: 15px 10px;
+    padding: 10px 15px;
+    margin: 12px 10px;
   }
 
-  .important-badges {
-    gap: 10px;
+  .info-compact-row {
+    gap: 8px;
   }
 
   .badge {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 6px 12px;
+    font-size: 14px;
   }
 
   .badge-icon {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .badge-text {
-    font-size: 18px;
+    font-size: 14px;
   }
 
-  .info-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .info-item {
-    justify-content: space-between;
-  }
-
-  .info-label {
+  .info-compact-item {
+    padding: 5px 12px;
     font-size: 13px;
   }
 
-  .info-value {
-    font-size: 14px;
-    padding: 3px 10px;
+  .compact-value {
+    font-size: 13px;
   }
 }
 
+/* モバイル */
 @media (max-width: 480px) {
   .info-panel {
-    padding: 12px;
+    padding: 8px 10px;
+    margin: 10px 5px;
+  }
+
+  .info-compact-row {
+    gap: 6px;
+    justify-content: flex-start;
   }
 
   .badge {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-
-  .badge-icon {
-    font-size: 18px;
-  }
-
-  .badge-text {
-    font-size: 16px;
-  }
-
-  .info-label {
+    padding: 5px 10px;
     font-size: 12px;
   }
 
-  .info-value {
-    font-size: 13px;
-    padding: 2px 8px;
+  .badge-icon {
+    font-size: 14px;
   }
 
-  .dora-tiles {
-    gap: 4px;
+  .badge-text {
+    font-size: 12px;
+  }
+
+  .info-compact-item {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .compact-label {
+    font-size: 11px;
+  }
+
+  .compact-value {
+    font-size: 12px;
+  }
+
+  .dora-tiles-compact {
+    gap: 2px;
   }
 }
